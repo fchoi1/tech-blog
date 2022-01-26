@@ -5,16 +5,28 @@
     <title>Tech Blog</title>
     <link rel='stylesheet' href='/css/style.css' />
   </head>
+
   <body>
+    <nav>
+      <a href='/'> Home </a>
+      <a href='/dashboard'>Dashboard</a>
+
+      {{#if loggedIn}}
+        <button id='logout' class='btn-no-style'>Logout</button>
+      {{else}}
+        <a href='/login'>Login</a>
+      {{/if}}
+    </nav>
 
     <header>
       <h1>
-        <a href='/'>Tech Blog</a>
+        {{{displayTitle page}}}
       </h1>
     </header>
-    <nav>
 
-    </nav>
+    <main>
+      {{{body}}}
+    </main>
     <footer>
       Thanks for visiting tech blog
     </footer>

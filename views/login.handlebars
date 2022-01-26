@@ -1,0 +1,45 @@
+{{#if isSignup}}
+  <form class='login-form'>
+    <div>
+      <h2> Signup </h2>
+      <div>
+        <label for='email-signup'>email:</label>
+        <input type='text' id='email-signup' />
+      </div>
+
+      <div>
+        <label for='username-login'>username:</label>
+        <input type='text' id='username-login' />
+      </div>
+      <div>
+        <label for='password-login'>password:</label>
+        <input type='text' id='username-login' />
+      </div>
+      <div>
+        <button type='submit'> Signup </button>
+      </div>
+      <a href='/login'>back to login</a>
+
+    </div>
+  </form>
+{{else}}
+<form class='login-form'>
+    <div>
+      <h2> Login </h2>
+
+      <div>
+        <label for='username-login'>username:</label>
+        <input type='text' id='username-login' />
+      </div>
+      <div>
+        <label for='password-login'>password:</label>
+        <input type='text' id='username-login' />
+      </div>
+      <div>
+        <button type='submit'> Login </button>
+      </div>
+      <a href='/login/?isSignup=true'>Sign up instead</a>
+    </div>
+  </form>
+  
+{{/if}}
