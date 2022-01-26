@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     const dbCommentData = await Comment.findAll({
       include: [
         { model: Post, include: [{ model: User, attributes: ['username'] }] },
-        { model: User, attributes: ['username'] }
+        { model: User, attributes: ['username'] },
       ]
     });
     res.json(dbCommentData);

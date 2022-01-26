@@ -1,10 +1,13 @@
-const { Post, User } = require('../../models');
+const { Post, User, Comment} = require('../../models');
 const router = require('express').Router();
 
 router.get('/', async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
-      include: [{ model: User, attributes: ['username'] }]
+      include: [
+        { model: User, attributes: ['username'] },
+        { model: Comment, include: [{ model: User, attributes: ['username'] }] }
+      ]
     });
     res.json(dbPostData);
   } catch (err) {
@@ -14,8 +17,12 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const dbPostData = await Post.findAll({
-      include: [{ model: User, attributes: ['username'] }]
+    const dbPostData = await Post.findOne({
+      where: {id: req.params.id},
+      include: [
+        { model: User, attributes: ['username'] },
+        { model: Comment, include: [{ model: User, attributes: ['username'] }] }
+      ]
     });
     !dbPostData
       ? res.status(404).json({ message: 'No user found with this id' })

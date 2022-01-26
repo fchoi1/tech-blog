@@ -65,4 +65,15 @@ router.post('/login', async (req, res) => {
   });
 });
 
+// POST /api/users/logout
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy( () => {
+      res.status(204).end(); // 204 no content, success nothing to do
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
 module.exports = router;
