@@ -3,7 +3,7 @@ const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // middleware auth function
-//router.use(withAuth);
+router.use(withAuth);
 
 router.get('/', async (req, res) => {
   console.log('loggedin', req.session.loggedIn)

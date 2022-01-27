@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     const dbCommentData = await Comment.findAll({
       include: [
         { model: Post, include: [{ model: User, attributes: ['username'] }] },
-        { model: User, attributes: ['username'] },
+        { model: User, attributes: ['username'] }
       ]
     });
     res.json(dbCommentData);
@@ -38,13 +38,12 @@ router.post('/', async (req, res) => {
         post_id: 1,
     }  */
   try {
-    const dbCommentData = await Comment.create(req.body);
-    req.session.save(() => {
-      req.session.user_id = dbCommentData.id;
-      req.session.username = dbCommentData.username;
-      req.session.loggedIn = true;
-      res.json(dbCommentData);
+    const dbCommentData = await Comment.create({
+      comment_text: req.body.comment_text,
+      user_id: req.session.user_id,
+      post_id: req.body.post_id
     });
+    res.json(dbCommentData);
   } catch (err) {
     res.status(500).json(err);
   }

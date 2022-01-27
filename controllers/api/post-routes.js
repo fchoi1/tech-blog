@@ -1,4 +1,4 @@
-const { Post, User, Comment} = require('../../models');
+const { Post, User, Comment } = require('../../models');
 const router = require('express').Router();
 
 router.get('/', async (req, res) => {
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const dbPostData = await Post.findOne({
-      where: {id: req.params.id},
+      where: { id: req.params.id },
       include: [
         { model: User, attributes: ['username'] },
         { model: Comment, include: [{ model: User, attributes: ['username'] }] }
@@ -33,18 +33,13 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  /* Request body:
-    {   username: 'someuser'
-        password: 'somepassword'
-    }  */
   try {
-    const dbPostData = await Post.create(req.body);
-    req.session.save(() => {
-      req.session.user_id = dbPostData.id;
-      req.session.username = dbPostData.username;
-      req.session.loggedIn = true;
-      res.json(dbPostData);
+    const dbPostData = await Post.create({
+      title: req.body.title,
+      content: req.body.content,
+      user_id: req.session.user_id
     });
+    res.json(dbPostData);
   } catch (err) {
     res.status(500).json(err);
   }
