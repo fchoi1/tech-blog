@@ -45,4 +45,35 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const dbPostData = await Post.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+        user_id: req.session.user_id
+      },
+      {
+        where: { id: req.params.id }
+      }
+    );
+    !dbPostData
+      ? res.status(404).json({ message: 'No user found with this id' })
+      : res.json(dbPostData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const dbPostData = await Post.destroy({ where: { id: req.params.id } });
+    !dbPostData
+      ? res.status(404).json({ message: 'No user found with this id' })
+      : res.json(dbPostData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

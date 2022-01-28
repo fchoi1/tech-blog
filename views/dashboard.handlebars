@@ -7,8 +7,8 @@
       <input type='text' id='post-title' name='post-title' />
     </div>
     <div>
-      <label for='post-url'>Link</label>
-      <input id='post-url' name='post-url' />
+      <label for='post-content'>Content</label>
+      <textarea  id='post-content' name='post-content'> </textarea>
     </div>
     <button type='submit' class='btn'>Create</button>
   </form>
@@ -20,12 +20,14 @@
     <ol>
       {{#each posts as |post|}}
         <li>
-          {{>post-info post}}
+          {{>post-short post}}   
           <a href='/dashboard/edit/{{post.id}}' class='edit-link'>Edit Post</a>
         </li>
       {{/each}}
     </ol>
   </section>
+{{else}}
+  <h3>You have no posts yet</h3>
 {{/if}}
 
 <script src="/javascript/add-post.js"></script>

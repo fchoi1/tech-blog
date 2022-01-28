@@ -41,10 +41,12 @@ async function loginFormHandler(event) {
   }
 }
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
-
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+if (document.querySelector('.login-form')) {
+  document
+    .querySelector('.login-form')
+    .addEventListener('submit', loginFormHandler);
+} else {
+  document
+    .querySelector('.signup-form')
+    .addEventListener('submit', signupFormHandler);
+}
