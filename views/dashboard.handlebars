@@ -1,33 +1,24 @@
-<section>
-  <h2>Create New Post</h2>
-
-  <form class='new-post-form'>
-    <div>
-      <label for='post-title'>Title</label>
-      <input type='text' id='post-title' name='post-title' />
-    </div>
-    <div>
-      <label for='post-content'>Content</label>
-      <textarea  id='post-content' name='post-content'> </textarea>
-    </div>
-    <button type='submit' class='btn'>Create</button>
-  </form>
-</section>
 
 {{#if posts.length}}
   <section>
-    <h2>Your Posts</h2>
-    <ol>
+    <div class="your-post-wrapper">
+      <h2>Your Posts</h2>
+    </div>
+    <ul>
       {{#each posts as |post|}}
         <li>
           {{>post-short post}}   
-          <a href='/dashboard/edit/{{post.id}}' class='edit-link'>Edit Post</a>
+          <div class="edit-link-wrapper">
+            <a href='/dashboard/edit/{{post.id}}' class='edit-link'>Edit Post</a>
+          </div>
         </li>
       {{/each}}
-    </ol>
+    </ul>
   </section>
 {{else}}
   <h3>You have no posts yet</h3>
 {{/if}}
 
-<script src="/javascript/add-post.js"></script>
+<button type="button" class='btn new-post-btn'>+ New Post</button>
+
+<script src="/javascript/new-post.js"></script>

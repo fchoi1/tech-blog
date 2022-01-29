@@ -1,8 +1,10 @@
 <div class='comments'>
   {{#each this}}
     <section class='comment'>
-      <div class='user-info'>
-        <span>Posted by: {{user.username}} on {{format_date createdAt}}</span>
+      <div class='comment-section-wrapper'>
+        <div class='user-info'>
+          <span>Posted by: {{user.username}} on {{format_date createdAt}}</span>
+        </div>
       </div>
       <div class='text'>
         {{comment_text}}

@@ -43,4 +43,9 @@ router.get('/edit/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/new-post', (req, res) => {
+  res.render('new-post');
+});
+
 module.exports = router;

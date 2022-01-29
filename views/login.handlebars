@@ -1,38 +1,46 @@
 {{#if isSignup}}
   <form class='signup-form'>
     <div>
-      <h2> Signup </h2>
-      <div>
-        <label for='username-login'>username:</label>
+      <div class='login-wrapper'>
+        <h2 class='login-header'> Signup </h2>
+      </div>
+      <div class='input-wrapper'>
+        <label for='username-login'>Username:</label>
         <input type='text' id='username-signup' />
       </div>
-      <div>
-        <label for='password-login'>password:</label>
+      <div class='input-wrapper'>
+        <label for='password-login'>Password:</label>
         <input type='password' id='password-signup' />
       </div>
-      <div>
-        <button type='submit'> Signup </button>
+      <div class='input-wrapper'>
+        <button class='submit' type='submit'> Signup! </button>
       </div>
-      <a href='/login'>back to login</a>
+      <div class='input-wrapper'>
+        <a class='switch-login' href='/login'>Back to login</a>
+      </div>
 
     </div>
   </form>
 {{else}}
   <form class='login-form'>
     <div>
-      <h2> Login </h2>
-      <div>
-        <label for='username-login'>username:</label>
+      <div class='login-wrapper'>
+        <h2 class='login-header'> Login </h2>
+      </div>
+      <div class='input-wrapper'>
+        <label for='username-login'>Username:</label>
         <input type='text' id='username-login' />
       </div>
-      <div>
-        <label for='password-login'>password:</label>
+      <div class='input-wrapper'>
+        <label for='password-login'>Password:</label>
         <input type='password' id='password-login' />
       </div>
-      <div>
-        <button type='submit'> Login </button>
+      <div class='input-wrapper'>
+        <button class='submit' type='submit'> Login! </button>
       </div>
-      <a href='/login/?isSignup=true'>Sign up instead</a>
+      <div class='input-wrapper'>
+        <a class='switch-login' href='/login/?isSignup=true'>Sign up instead</a>
+      </div>
     </div>
   </form>
 

@@ -3,27 +3,35 @@
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Tech Blog</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400;800&family=Staatliches&display=swap'
+      rel='stylesheet'
+    />
     <link rel='stylesheet' href='/css/style.css' />
   </head>
 
   <body>
-    <nav>
-      <a href='/'> Home </a>
-      <a href='/dashboard'>Dashboard</a>
+    <div class='header-bar'>
 
-      {{#if loggedIn}}
-        <button id='logout' class='btn-no-style'>Logout</button>
-      {{else}}
-        <a href='/login'>Login</a>
-      {{/if}}
-    </nav>
+      <nav class='main-nav'>
+        <a href='/'> Home </a>
+        <a href='/dashboard'>Dashboard</a>
 
-    <header>
-      <h1>
-        {{{displayTitle page}}}
-      </h1>
-    </header>
+        {{#if loggedIn}}
+          <button id='logout' class='btn-no-style'>Logout</button>
+        {{else}}
+          <a href='/login'>Login</a>
+        {{/if}}
+      </nav>
 
+      <header>
+        <h1>
+          {{{displayTitle page}}}
+        </h1>
+      </header>
+    </div>
     <main>
       {{{body}}}
     </main>
