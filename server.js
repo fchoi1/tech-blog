@@ -23,6 +23,7 @@ const sess = {
   saveUninitialized: true,
   cookie: {
     expires: 60 * 5000 // Expires 5 min of inactivity 60 secs * 5000 milli secs
+  },
   store: new SequelizeStore({
     db: sequelize
   })
