@@ -75,7 +75,7 @@ This is for local install if you want to deploy the appliaction yourself
    <img src="./images/step3b.png" width="300">
 4. Dashboard available after login.
    <img src="./images/step4.png" width="600">
-5. Create new a post
+5. Create new a post   
    <img src="./images/step5.png" width="600">  
 6. Dashboard displays all posts created by user with ability to edit post
    <img src="./images/step6.png" width="600">  
